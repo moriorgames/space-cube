@@ -8,7 +8,7 @@ namespace MoriorGames {
 class RectangularCuboid
 {
 public:
-    RectangularCuboid();
+    RectangularCuboid(Coordinate *, int height, int width, int depth);
 
 protected:
 
@@ -16,6 +16,14 @@ protected:
     int height = 0, width = 0, depth = 0;
 
 public:
+
+    Coordinate *getCoordinate() const;
+
+    int getHeight() const;
+
+    int getWidth() const;
+
+    int getDepth() const;
 
     void print()
     {
@@ -28,6 +36,7 @@ public:
                width,
                depth
         );
+        coordinate->print();
     }
 };
 
