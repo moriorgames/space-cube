@@ -32,8 +32,7 @@ public:
         printf("========= RectangularCuboid: \n"
                    " - height %i\n"
                    " - width %i\n"
-                   " - depth %i\n"
-                   " \n",
+                   " - depth %i\n",
                height,
                width,
                depth

@@ -1,21 +1,32 @@
 #ifndef APP_MORIOR_GAMES_SERVICES_SPACE_INTERSECTION_H
 #define APP_MORIOR_GAMES_SERVICES_SPACE_INTERSECTION_H
 
-#include "../Entity/Cuboid.h"
+#include "../Entity/Cube.h"
 
 namespace MoriorGames {
 
 class SpaceIntersection
 {
 public:
-    explicit SpaceIntersection(Cuboid *, Cuboid *);
+    explicit SpaceIntersection(Cube *, Cube *);
 
 private:
 
-    Cuboid *cuboid1, *cuboid2;
+    Cube *cube1, *cube2;
 
 public:
     Cuboid *getResultantCuboid() const;
+
+private:
+    int getHeightIntersection() const;
+
+    int getWidthIntersection() const;
+
+    int getDepthIntersection() const;
+
+    int getIntersectionSize(int size1, int size2, int axis1, int axis2) const;
+
+    int absoluteValueDistance(int number1, int number2) const;
 
 };
 
