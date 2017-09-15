@@ -28,12 +28,4 @@ TEST_CASE("RectangularCuboidConstructorTest", "Should be able to Construct Recta
     REQUIRE(cuboid->getCoordinate()->getX() == 0);
 }
 
-TEST_CASE("RectangularCuboidPrintTest", "Should be able to Use Print on RectangularCuboid")
-{
-    int height = 1, width = 2, depth = 3;
-
-    auto cuboid = new Cuboid(new Coordinate(0, 0, 0), height, width, depth);
-    cuboid->print();
-}
-
 }
