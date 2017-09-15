@@ -1,0 +1,30 @@
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+cmake-build-debug
+
+# Folder config file
+Desktop.ini
+
+# Code coverage helper files
+.gcda
+.gcno
+coverage/index*
+!coverage/index.html
+
+# Build folder
+build/main
+build/main.dSYM
+deploy/battlemachine.c
+
+# Recycle Bin used on file shares
+*.gcda
+*.gcno
