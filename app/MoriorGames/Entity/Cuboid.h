@@ -1,14 +1,16 @@
-#ifndef APP_MORIOR_GAMES_ENTITY_RECTANGULAR_CUBOID_H
-#define APP_MORIOR_GAMES_ENTITY_RECTANGULAR_CUBOID_H
+#ifndef APP_MORIOR_GAMES_ENTITY_CUBOID_H
+#define APP_MORIOR_GAMES_ENTITY_CUBOID_H
 
 #include "Coordinate.h"
 
 namespace MoriorGames {
 
-class RectangularCuboid
+class Cuboid
 {
 public:
-    RectangularCuboid(Coordinate *, int height, int width, int depth);
+    Cuboid(int height, int width, int depth);
+
+    Cuboid(Coordinate *, int height, int width, int depth);
 
 protected:
 

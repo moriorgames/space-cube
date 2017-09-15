@@ -1,13 +1,15 @@
 #ifndef APP_MORIOR_GAMES_ENTITY_CUBE_H
 #define APP_MORIOR_GAMES_ENTITY_CUBE_H
 
-#include "RectangularCuboid.h"
+#include "Cuboid.h"
 
 namespace MoriorGames {
 
-class Cube: public RectangularCuboid
+class Cube: public Cuboid
 {
 public:
+    Cube(int size);
+
     Cube(Coordinate *, int size);
 
 };

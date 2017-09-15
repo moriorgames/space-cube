@@ -4,6 +4,17 @@ using MoriorGames::Cube;
 
 namespace CubeTest {
 
+TEST_CASE("CubeDefaultConstructorTest", "Should be able to Construct Cube")
+{
+    int size = 1;
+
+    auto cube = new Cube(size);
+
+    REQUIRE(cube->getHeight() == size);
+    REQUIRE(cube->getWidth() == size);
+    REQUIRE(cube->getDepth() == size);
+}
+
 TEST_CASE("CubeConstructorTest", "Should be able to Construct Cube")
 {
     int size = 1;

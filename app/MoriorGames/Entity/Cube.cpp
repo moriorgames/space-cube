@@ -2,7 +2,13 @@
 
 using MoriorGames::Cube;
 
-Cube::Cube(Coordinate *coordinate, int size)
-    : RectangularCuboid(coordinate, size, size, size)
+Cube::Cube(int size)
+    : Cuboid(size, size, size)
 {
 }
+
+Cube::Cube(Coordinate *coordinate, int size)
+    : Cuboid(coordinate, size, size, size)
+{
+}
+
