@@ -1,0 +1,8 @@
+//
+// Created by Jordi Grados García on 15/09/2017.
+//
+
+#ifndef SPACECUBE_COORDINATETEST_H
+#define SPACECUBE_COORDINATETEST_H
+
+#endif //SPACECUBE_COORDINATETEST_H
