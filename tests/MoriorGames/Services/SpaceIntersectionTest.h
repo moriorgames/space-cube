@@ -217,4 +217,36 @@ TEST_CASE("SpaceIntersectionTestNoIntersection", "Should be able to get the resu
     REQUIRE(volumeCalc->getVolume() == 0);
 }
 
+TEST_CASE("SpaceIntersectionTestIntersectionTouchingEdgeWitin", "Should be able to get the resultant Cuboid on Touching Cuboids with one edge within other cuboid edge")
+{
+    auto cube1 = new Cube(new Coordinate(0, 0, 0), 5);
+    auto cube2 = new Cube(new Coordinate(3, 4, 4), 2);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 2);
+}
+
+TEST_CASE("SpaceIntersectionTestIntersectionTouchingEdgeFullyWitin", "Should be able to get the resultant Cuboid on Touching Cuboids with one edge fully within other cuboid edge")
+{
+    auto cube1 = new Cube(new Coordinate(0, 0, 0), 5);
+    auto cube2 = new Cube(new Coordinate(3, 4, 4), 1);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 1);
+}
+
 }
