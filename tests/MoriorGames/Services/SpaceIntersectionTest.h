@@ -136,4 +136,85 @@ TEST_CASE("SpaceIntersectionTest8", "Should be able to get the resultant Cuboid 
     REQUIRE(volumeCalc->getVolume() == 5);
 }
 
+
+TEST_CASE("SpaceIntersectionTestIntersectionCuadrada", "Should be able to get the resultant Cuboid on Squared Intersection of 2 Cuboids")
+{
+    auto cube1 = new Cube(new Coordinate(0, 0, 0), 5);
+    auto cube2 = new Cube(new Coordinate(3, 3, 3), 5);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 8);
+}
+
+TEST_CASE("SpaceIntersectionTestIntersectionRectangular", "Should be able to get the resultant Cuboid on non Squared Intersection of 2 Cuboids")
+{
+    auto cube1 = new Cube(new Coordinate(0, 0, 0), 5);
+    auto cube2 = new Cube(new Coordinate(3, 4, 4), 5);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 2);
+}
+
+TEST_CASE("SpaceIntersectionTestIntersectionWithin", "Should be able to get the resultant Cuboid on Within Intersection of 2 Cuboids")
+{
+    auto cube1 = new Cube(new Coordinate(1, 1, 1), 1);
+    auto cube2 = new Cube(new Coordinate(0, 0, 0), 5);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 1);
+}
+
+TEST_CASE("SpaceIntersectionTestIntersectionTouching", "Should be able to get the resultant Cuboid on Touching Cuboids")
+{
+    auto cube1 = new Cube(new Coordinate(0, 0, 0), 5);
+    auto cube2 = new Cube(new Coordinate(3, 4, 5), 5);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 0);
+}
+
+TEST_CASE("SpaceIntersectionTestNoIntersection", "Should be able to get the resultant Cuboid on non Intersection of 2 Cuboids")
+{
+    auto cube1 = new Cube(new Coordinate(0, 0, 0), 5);
+    auto cube2 = new Cube(new Coordinate(6, 3, 3), 5);
+
+    auto spaceIntersection = new SpaceIntersection(cube1, cube2);
+
+    auto volumeCalc = new CuboidVolumeCalculator(spaceIntersection->getResultantCuboid());
+
+    printf("\n\n === SpaceIntersectionTest B1 === \n");
+    cube1->print();
+    cube2->print();
+    printf("RESULT: %i \n", volumeCalc->getVolume());
+    REQUIRE(volumeCalc->getVolume() == 0);
+}
+
 }
