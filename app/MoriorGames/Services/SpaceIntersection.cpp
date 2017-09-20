@@ -47,39 +47,23 @@ int SpaceIntersection::getDepthIntersection() const
 
 int SpaceIntersection::getIntersectionSize(int size1, int size2, int axis1, int axis2) const
 {
-    if (size1 > 0 && size2 > 0) {
+    std::vector<int> intersectionPoints;
 
-        int maxSize;
-
-        if (size1 < size2) {
-            maxSize = size1;
-        } else {
-            maxSize = size2;
+    for (int index1 = 0; index1 < size1; index1++) {
+        for (int index2 = 0; index2 < size2; index2++) {
+            if (index1 + axis1 == index2 + axis2 && !isPointInVector(index1 + axis1, intersectionPoints)) {
+                intersectionPoints.push_back(index1 + axis1);
+            }
         }
-
-        int distance = absoluteValueDistance(axis1, axis2);
-
-        return maxSize - distance;
-
-    } else {
-
-        return 0;
     }
+
+    return (int) intersectionPoints.size();
 }
 
-int SpaceIntersection::absoluteValueDistance(int number1, int number2) const
+int SpaceIntersection::isPointInVector(int point, std::vector<int> vector) const
 {
-    int distance = 0;
-    if ((number1 > 0 && number2 > 0) || (number1 <= 0 && number2 <= 0)) {
+    auto it = std::find_if(vector.begin(), vector.end(), [point](int vectorPoint)
+    { return vectorPoint == point; });
 
-        distance = abs(abs(number1) - abs(number2));
-    } else {
-        if (number1 < number2) {
-            distance = number2 + abs(number1);
-        } else {
-            distance = number1 + abs(number2);
-        }
-    }
-
-    return distance;
+    return it != vector.end();
 }
