@@ -1,6 +1,7 @@
 #ifndef APP_MORIOR_GAMES_SERVICES_SPACE_INTERSECTION_H
 #define APP_MORIOR_GAMES_SERVICES_SPACE_INTERSECTION_H
 
+#include <vector>
 #include "../Entity/Cube.h"
 
 namespace MoriorGames {
@@ -26,7 +27,7 @@ private:
 
     int getIntersectionSize(int size1, int size2, int axis1, int axis2) const;
 
-    int absoluteValueDistance(int number1, int number2) const;
+    int isPointInVector(int point, std::vector<int> vector) const;
 
 };
 
